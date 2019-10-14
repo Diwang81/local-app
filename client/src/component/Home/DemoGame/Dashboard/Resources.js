@@ -13,8 +13,6 @@ import {
 import moment from 'moment';
 import { Line } from '../../../../../node_modules/react-chartjs-2';
 
-import './Monetization.css';
-
 // Menu Header
 const { Header } = Layout;
 const { SubMenu } = Menu;

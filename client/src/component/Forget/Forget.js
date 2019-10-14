@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Icon, Input, Card, Avatar, Row, Col, Button,} from 'antd';
 import { Link } from 'react-router-dom';
 
-class Forgot extends React.Component{
+class Forget extends React.Component{
   constructor(props) {
     super(props);
 
@@ -95,4 +95,4 @@ class Forgot extends React.Component{
   }
 }
 
-export default Forgot;
+export default Forget;

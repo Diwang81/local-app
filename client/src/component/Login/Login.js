@@ -71,7 +71,7 @@ class Login extends Component{
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in</Button>
             <Form.Item>
-              <Button type="link" ><Link to="/Forgot"> Forgot your password <Icon type="question"/></Link></Button>
+              <Button type="link" ><Link to="/Forget"> Forgot your password <Icon type="question"/></Link></Button>
             </Form.Item>
             You don't have an account? <Link to="/Register"> <Icon type="user"/> SIGN UP for FREE</Link>
             </Form.Item>

@@ -9,7 +9,7 @@ import ManageAccount from './component/Home/Manage/ManageAccount';
 import ManegeApp from './component/Home/Manage/ManageApp';
 import ManageDev from './component/Home/Manage/ManageDev';
 import Member from './component/Home/Manage/Member';
-import Forgot from './component/Forgot/Forgot';
+import Forget from './component/Forget/Forget';
 import DemoGame from './component/Home/DemoGame/DemoGame';
 import NotMatch from './component/Errors/404';
 import './App.css';
@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/forgot" component={Forgot} />
+        <Route exact path="/forget" component={Forget} />
         <Route exact path="/reset" component={Reset} />
         <Route exact path="/ManageAccount" component={ManageAccount} />
         <Route exact path="/ManegeApp" component={ManegeApp} />
