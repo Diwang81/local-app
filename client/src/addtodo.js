@@ -4,6 +4,7 @@ import { Form, Input } from 'antd';
 export class AddTodo extends Component {
     state = {
         title: '',
+        visible: false,
     }
 
     onSubmit = (e) => {
@@ -21,7 +22,7 @@ export class AddTodo extends Component {
                     type="text" 
                     name="title"
                     style={{ padding: '5px'}}
-                    placeholder="Add Application" 
+                    placeholder="Add Developer" 
                     value={this.state.title}
                     onChange={this.onChange}
                 />
@@ -30,6 +31,7 @@ export class AddTodo extends Component {
                     value="Submit"
                     className="btn"
                     style= {{flex: '1'}}
+                    data-dismiss="modal"
                 />
             </Form>
         )
