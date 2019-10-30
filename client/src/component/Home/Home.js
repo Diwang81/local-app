@@ -66,13 +66,11 @@ class Home extends React.Component {
           <div className="PageHeader">
             <PageHeader title="Games"/>
             <Search placeholder="Search App or Developer" onSearch={value => console.log(value)} style={{ width: '30%'}} enterButton />
-            <Button onClick={this.showModal2} type='link' style={{ marginLeft: '10%'}} >< h4><Icon type="plus-circle" theme="twoTone" /> App</h4></Button>
-            <Button onClick={this.showModal} type='link' style={{ marginLeft: '5%'}} >< h4><Icon type="plus-circle" theme="twoTone" /> Developer</h4></Button>            
-            <Button type='link' style={{ marginLeft: '5%'}} >< h4><Link to="/Member"/><Icon type="plus-circle" theme="twoTone" /> Member </h4></Button>
+            <Button onClick={this.showModal} type='link' style={{ marginLeft: '45%'}} >< h4><Icon type="plus-circle" theme="twoTone" /> Developer</h4></Button>            
+            <Button type='link'>< h4><Link to="/Member"/><Icon type="plus-circle" theme="twoTone" /> Member </h4></Button>
             <Modal
                 title="Add Developer"
                 visible={this.state.visible}
-                onOk={this.handleOk}
                 onCancel={this.handleCancel}
                 footer={[null]}
               >
