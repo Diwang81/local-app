@@ -1,10 +1,45 @@
 import React, { Component } from 'react';
-import { Button, List, Icon, Avatar, Statistic, Row } from 'antd';
+import { Button, List, Icon, Avatar, Statistic, Form, Modal, Input } from 'antd';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const data = ['Demo Game'];
 
 export class TodoItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          visible: false,
+        };
+      }
+
+    componentDidMount() {
+    axios.get('https://my-json-server.typicode.com/Diwang81/API-test/application/')
+        .then(res => this.setState({ todos: res.data }));
+    }
+    
+    addTodo = (title) => {
+        axios.post('https://my-json-server.typicode.com/Diwang81/API-test/application/', {
+          title: title,
+        })
+          .then(res => this.setState({
+            todos: [...this.state.todos, res.data]
+          }));
+      }
+
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+
+    handleCancel = e => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+      };
+    
     render() {
         const { id, title } = this.props.todo;
         return (
@@ -20,7 +55,6 @@ export class TodoItem extends Component {
                 bordered
                 dataSource={data}
                 renderItem={item => 
-                    
                 <List.Item style={{ padding: '12px 0px', height: '90px' }}>
                     <div style={{ display: 'inline-block', width: '42px', height: '50px', margin: '0px 4px' }}>
                         <div style={{ width: '28.8px', padding: '4px', margin: '10.6px auto' }}>
@@ -34,7 +68,7 @@ export class TodoItem extends Component {
                         <Avatar shape="square" size={50} icon="user" />
                         </div>
                         <div style={{ padding: '0px 0px 0px 12px', display: 'inline-block' }}>
-                        <Button type="link" ><Link to="/game/1782/dashboard"><b>{item}</b></Link></Button>
+                        <Button type="link" style={{ color: 'black'}} ><Link to="/game/1782/dashboard"><b>{title}</b></Link></Button>
                         </div>
                     </div>
                     <div>
@@ -70,9 +104,22 @@ export class TodoItem extends Component {
                             suffix="%"
                         />
                     </div>
-                    <Button style={{ fontWeight: 'bold'}}>
+                    <Button onClick={this.showModal} style={{ fontWeight: 'bold'}}>
                         Add App
                     </Button>
+                        <Modal
+                            title="Add Application"
+                            visible={this.state.visible}
+                            onCancel={this.handleCancel}
+                        >
+                            <Form layout="vertical">
+                            <Form.Item label="Title">
+                                <Input placeholder="Add Application"
+
+                                />
+                            </Form.Item>
+                            </Form>
+                        </Modal>
                 </List.Item>}
                 />
         )

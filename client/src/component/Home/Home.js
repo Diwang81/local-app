@@ -72,7 +72,7 @@ class Home extends React.Component {
                 title="Add Developer"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
-                footer={[null]}
+                
               >
                 <Form layout="vertical">
                   <Form.Item label="Title">

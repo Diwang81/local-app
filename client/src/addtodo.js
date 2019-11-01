@@ -10,8 +10,15 @@ export class AddTodo extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         this.props.addTodo(this.state.title);
-        this.setState({ title: '' });
+        this.setState({ title: '', visible: false });
     }
+
+    handleCancel = e => {
+        e.preventDefault();
+        this.setState({
+          visible: false,
+        });
+      };
 
     onChange = (e) => this.setState({ title: e.target.value });
 
@@ -30,8 +37,8 @@ export class AddTodo extends Component {
                     type="submit"
                     value="Submit"
                     className="btn"
-                    style= {{flex: '1'}}
-                    data-dismiss="modal"
+                    style= {{flex: '1',}}
+                    visible={this.state.visible}
                 />
             </Form>
         )
