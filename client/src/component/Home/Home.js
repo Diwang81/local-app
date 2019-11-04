@@ -19,12 +19,12 @@ class Home extends React.Component {
   }
     
   componentDidMount() {
-    axios.get('https://my-json-server.typicode.com/Diwang81/API-test/developer/')
+    axios.get('https://my-json-server.typicode.com/Diwang81/API-test/developer?_limit=10/')
       .then(res => this.setState({ todos: res.data }));
   }
 
   delTodo = (id) => {
-    axios.delete('https://my-json-server.typicode.com/Diwang81/API-test/developer/',{params: {id}})
+    axios.delete(`https://my-json-server.typicode.com/Diwang81/API-test/developer/${id}`)
       .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)]}));
   }
 
@@ -66,13 +66,13 @@ class Home extends React.Component {
           <div className="PageHeader">
             <PageHeader title="Games"/>
             <Search placeholder="Search App or Developer" onSearch={value => console.log(value)} style={{ width: '30%'}} enterButton />
-            <Button onClick={this.showModal} type='link' style={{ marginLeft: '45%'}} >< h4><Icon type="plus-circle" theme="twoTone" /> Developer</h4></Button>            
-            <Button type='link'>< h4><Link to="/Member"/><Icon type="plus-circle" theme="twoTone" /> Member </h4></Button>
+            <Button onClick={this.showModal} type='link' style={{ marginLeft: '45%'}} >< h3><Icon type="plus-circle" theme="filled" style={{ fontSize: '18px', color: '#08c' }} /> Developer</h3></Button>            
+            <Button type='link'>< h3><Link to="/Member"/><Icon type="plus-circle" theme="filled" style={{ fontSize: '18px', color: '#08c' }} /> Member </h3></Button>
             <Modal
                 title="Add Developer"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
-                
+                footer={null}
               >
                 <Form layout="vertical">
                   <Form.Item label="Title">

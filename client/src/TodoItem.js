@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { Button, List, Icon, Avatar, Statistic, Form, Modal, Input } from 'antd';
+import { Button, List, Icon, Avatar, Statistic, Form, Modal } from 'antd';
 import { Link } from 'react-router-dom';
+import AddTodo from './addtodo';
 import axios from 'axios';
 
-const data = ['Demo Game'];
+const data = [''];
 
 export class TodoItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          Todos:[],
           visible: false,
         };
       }
@@ -18,13 +20,24 @@ export class TodoItem extends Component {
         .then(res => this.setState({ todos: res.data }));
     }
     
-    addTodo = (title) => {
-        axios.post('https://my-json-server.typicode.com/Diwang81/API-test/application/', {
-          title: title,
-        })
-          .then(res => this.setState({
-            todos: [...this.state.todos, res.data]
-          }));
+    editTodo = (id, title) => {
+        axios.put(`https://my-json-server.typicode.com/Diwang81/API-test/application/${id}`,
+          {
+            title
+          },
+        )
+          .then(({data}) => {
+            this.setState(prevSate => {
+              const { todos } = prevSate;
+              const oldTodoIndex = todos.findIndex(todo => todo.id === data.id )
+              const newTodo = {...todos[oldTodoIndex], ...data}
+              todos.splice(oldTodoIndex, 1, newTodo)
+    
+              return {todos: todos}
+            })
+    
+          })
+          .catch(error => console.log(error))
       }
 
     showModal = () => {
@@ -105,18 +118,18 @@ export class TodoItem extends Component {
                         />
                     </div>
                     <Button onClick={this.showModal} style={{ fontWeight: 'bold'}}>
+                    <Icon type="plus-circle" theme="filled" />
                         Add App
                     </Button>
                         <Modal
                             title="Add Application"
                             visible={this.state.visible}
                             onCancel={this.handleCancel}
+                            footer={null}
                         >
                             <Form layout="vertical">
                             <Form.Item label="Title">
-                                <Input placeholder="Add Application"
-
-                                />
+                            {(<AddTodo addTodo={this.addTodo} />)}
                             </Form.Item>
                             </Form>
                         </Modal>
