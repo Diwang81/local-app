@@ -50,32 +50,32 @@ class Forgot extends React.Component {
 
   render() {
     const { username, submitted } = this.state;
-    
+
     return (
       <div className='continer' >
         <Avatar size={64} src="https://t4.ftcdn.net/jpg/02/37/83/65/500_F_237836548_QZ5lcLl0Le4fhjal2MlgOPK3dyDMBbfR.jpg"
           style={{ margin: '30px', marginLeft: '170px' }} />
-          <Card bordered={false} style={{ width: 400, boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' }}>
-            {!this.state.submited && (
-              <Form onSubmit={this.handleSubmit} className="login-form">
-                <Form.Item style={{ textAlign: 'center' }} className={'form-group' + (submitted && !username ? ' has-error' : '')}><h1>Forget Password</h1></Form.Item>
-                <Form.Item>
-                  <Input
-                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    placeholder="Username"
-                  />
-                </Form.Item>
-                <Form.Item style={{ textAlign: 'right' }} className={'form-group'}>
-                  <Button type="link" ><Link to="/Login"> Back to Login </Link></Button>
-                </Form.Item>
-                <Form.Item style={{ textAlign: 'center' }}>
-                  <Button type="primary"  >
-                    Send Email
+        <Card bordered={false} style={{ width: 400, boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' }}>
+          {!this.state.submited && (
+            <Form onSubmit={this.handleSubmit} className="login-form">
+              <Form.Item style={{ textAlign: 'center' }} className={'form-group' + (submitted && !username ? ' has-error' : '')}><h1>Forget Password</h1></Form.Item>
+              <Form.Item>
+                <Input
+                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  placeholder="Username"
+                />
+              </Form.Item>
+              <Form.Item style={{ textAlign: 'right' }} className={'form-group'}>
+                <Button type="link" ><Link to="/Login"> Back to Login </Link></Button>
+              </Form.Item>
+              <Form.Item style={{ textAlign: 'center' }}>
+                <Button type="primary"  >
+                  Send Email
               </Button>
-                </Form.Item>
-              </Form>
-            )}
-          </Card>
+              </Form.Item>
+            </Form>
+          )}
+        </Card>
       </div>
     );
   }

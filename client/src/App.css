@@ -1,47 +1,48 @@
-body{
+body {
   background-color: aliceblue;
 }
 
 .login-form {
-    max-width: 350px;
-  }
+  max-width: 350px;
+}
 
 .login-form-forgot {
-    text-align: center;
-  }
+  text-align: center;
+}
 
 .login-form-button {
   width: 300px;
   margin: 13px;
-  }
+}
 
 .continer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Home */
 
-.Menu{
+.Menu {
   background-color: rgba(0, 0, 0, 0.822);
   color: white;
 }
 
 .PageHeader {
-
   width: 100%
 }
 
-.Header{
+.Header {
   width: 70%;
   margin: 10px auto auto;
 }
 
 /* Manager */
+
 .continerAccount {
   position: absolute;
   top: 0;
@@ -51,22 +52,21 @@ body{
   justify-content: center;
   align-items: center;
   margin: 150px;
-  }
-
-  /* Register */
-.Form-Register{
-  text-align: center;
-  
 }
 
-.Button-Register{
+/* Register */
+
+.Form-Register {
+  text-align: center;
+}
+
+.Button-Register {
   width: 350px;
 }
 
+/* Reset */
 
-  /* Reset */
-  .Button-Reset{
-    float: center;
-    margin-left: 230px;
-  }
-
+.Button-Reset {
+  float: center;
+  margin-left: 230px;
+}
