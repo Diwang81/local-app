@@ -124,8 +124,8 @@ export class TodoItem extends Component {
 								<Col>
 									<Button onClick={this.showModal} style={{ fontWeight: 'bold' }}>
 										<Icon type="plus-circle" theme="filled" />
-										Add App
-                                </Button>
+											Add App
+                  </Button>
 								</Col>
 								<Modal
 									title="Add Application"

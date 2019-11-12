@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Icon, Button, PageHeader, Input, Modal, Form, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
-import Todos from '../../Todos';
-import AddTodo from '../../addtodo';
+import Todos from './Todos';
+import AddTodo from './addtodo';
 
 const { Search } = Input;
 
-class Home extends React.Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todos: [],
       expandIconPosition: 'left',
-      visible: false
+      visible: false,
     };
   }
 
@@ -52,9 +52,9 @@ class Home extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.addTodo(this.state.title);
-    this.setState({ title: '' });
-  }
+    this.props.addTodo(this.state.title,{ loading: true });
+      this.setState({ title: '', visible: false });
+	}
 
   onChange = (e) => this.setState({ title: e.target.value, visible: false });
 
@@ -68,8 +68,8 @@ class Home extends React.Component {
             <Row>
               <Col>
                 <Search placeholder="Search App or Developer" onSearch={value => console.log(value)} style={{ width: 300, marginRight: '45%', marginBottom: '1%', }} enterButton />
-                <Button onClick={this.showModal} type='link' >< h3><Icon type="plus-circle" theme="filled" style={{ fontSize: '18px', color: '#08c' }} /> Developer</h3></Button>
-                <Button type='link'>< h3><Link to="/Member" /><Icon type="plus-circle" theme="filled" style={{ fontSize: '18px', color: '#08c' }} /> Member </h3></Button>
+                <Button onClick={this.showModal} type='link' ><h3><Icon type="plus-circle" theme="filled" style={{ fontSize: '18px', color: '#08c' }} /> Developer</h3></Button>
+                <Button type='link'>< h3><Icon type="plus-circle" theme="filled" style={{ fontSize: '18px', color: '#08c' }} /><Link to="/Member" /> Member</h3></Button>
               </Col>
             </Row>
             <Modal
@@ -80,7 +80,7 @@ class Home extends React.Component {
             >
               <Form layout="vertical">
                 <Form.Item label="Title">
-                  {(<AddTodo addTodo={this.addTodo} />)}
+                  {( <AddTodo addTodo={this.addTodo} />)}
                 </Form.Item>
               </Form>
             </Modal>

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Form, Icon, Input, Card, Avatar, Button, } from 'antd';
 import { Link } from 'react-router-dom';
-class Forgot extends React.Component {
+
+class Forgot extends Component {
   constructor(props) {
     super(props);
 
@@ -62,7 +63,7 @@ class Forgot extends React.Component {
               <Form.Item>
                 <Input
                   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Username"
+                  placeholder="Email"
                 />
               </Form.Item>
               <Form.Item style={{ textAlign: 'right' }} className={'form-group'}>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Form, Input, Button, Card, Avatar } from 'antd';
 
-class RegistrationForm extends React.Component {
+class RegistrationForm extends Component {
   constructor() {
     super();
 

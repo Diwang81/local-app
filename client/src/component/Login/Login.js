@@ -24,9 +24,14 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    const user = {
-      email: this.state.email,
-      password: this.state.password
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+      const user = {
+        email: this.state.email,
+        password: this.state.password
     }
 
     login(user).then(res => {
@@ -48,7 +53,7 @@ class Login extends Component {
         <Avatar size={64} src="https://t4.ftcdn.net/jpg/02/37/83/65/500_F_237836548_QZ5lcLl0Le4fhjal2MlgOPK3dyDMBbfR.jpg"
           style={{ margin: '30px', marginLeft: '170px', textAlign: 'center' }} />
         <Card bordered={false} style={{ textAlign: 'center', width: 400, boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' }}>
-          <Form noValidate onSubmit={this.onSubmit} className="login-form">
+          <Form onSubmit={this.onSubmit} className="login-form">
             <Form.Item style={{ textAlign: 'center' }} className={'form-group'}><h1>Login</h1></Form.Item>
             <Form.Item>
               {getFieldDecorator('email', {

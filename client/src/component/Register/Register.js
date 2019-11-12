@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input, Icon, Button, Card, Avatar } from 'antd';
 import { register } from '../UserFunctions'
 
-class Register extends React.Component {
+class Register extends Component {
   constructor() {
     super()
     this.state = {
