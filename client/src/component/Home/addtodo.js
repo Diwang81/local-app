@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Input, Button } from 'antd';
 
 export class AddTodo extends Component {
 	state = {
 		title: '',
 		visible: false,
-    isOpen: false,
-    showModal: false,
+		isOpen: false,
+		showModal: false,
 	}
 
 	onSubmit = (e) => {
@@ -26,12 +26,11 @@ export class AddTodo extends Component {
 
 	render() {
 		return (
-			<Form onSubmit={this.onSubmit}>
+			<div onSubmit={this.onSubmit}>
 				<Input
 					name="title"
 					style={{ width: '100%', marginBottom: '20px' }}
 					placeholder="Add Developer"
-					visible={false}
 					value={this.state.title}
 					onChange={this.onChange}
 				/>
@@ -45,14 +44,12 @@ export class AddTodo extends Component {
 				</Button>
 				<Button
 					type="danger"
-					key="back"
-					cancelText="Cencle"
 					onClick={this.handleCancel}
 					style={{ float: 'right', marginRight: '10px' }}
 				>
 					Close
 				</Button>
-			</Form>
+			</div>
 		)
 	}
 }
